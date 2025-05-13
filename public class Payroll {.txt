@@ -1,0 +1,26 @@
+public class Payroll {
+    private Employee employee;
+    private String cutoffPeriod;
+    private boolean salaryComputed = false;
+
+    public Payroll(Employee employee, String cutoffPeriod) {
+        this.employee = employee;
+        this.cutoffPeriod = cutoffPeriod;
+    }
+
+    public void computePayroll() {
+        // Assume deduction values are set somewhere before
+        salaryComputed = true;
+    }
+
+    public String generatePayslip() {
+        return employee.getEmployeeDetails() +
+               "\nGross Salary: " + employee.computeGrossSalary() +
+               "\nDeductions: " + employee.computeTotalDeductions() +
+               "\nNet Salary: " + employee.computeNetSalary();
+    }
+
+    public boolean isSalaryComputed() {
+        return salaryComputed;
+    }
+}

@@ -1,0 +1,33 @@
+public class Inventory {
+    private String stockID;
+    private String brand;
+    private String model;
+    private int quantity;
+    private double price;
+
+    public Inventory(String stockID, String brand, String model, int quantity, double price) {
+        this.stockID = stockID;
+        this.brand = brand;
+        this.model = model;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    public void addStock(int amount) {
+        this.quantity += amount;
+    }
+
+    public void removeStock(int amount) {
+        if (this.quantity >= amount) {
+            this.quantity -= amount;
+        }
+    }
+
+    public void updateStockQuantity(int newQty) {
+        this.quantity = newQty;
+    }
+
+    public String getStockDetails() {
+        return brand + " " + model + " (ID: " + stockID + ") - Qty: " + quantity + " - Price: " + price;
+    }
+}

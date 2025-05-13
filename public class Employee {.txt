@@ -1,0 +1,38 @@
+public class Employee {
+    private String employeeID;
+    private String name;
+    private String position;
+    private double ratePerHour;
+    private double hoursWorked;
+    private double sssDeduction;
+    private double philHealthDeduction;
+    private double pagIbigDeduction;
+    private double withholdingTax;
+
+    public Employee(String employeeID, String name, String position, double ratePerHour) {
+        this.employeeID = employeeID;
+        this.name = name;
+        this.position = position;
+        this.ratePerHour = ratePerHour;
+    }
+
+    public void setHoursWorked(double hours) {
+        this.hoursWorked = hours;
+    }
+
+    public double computeGrossSalary() {
+        return ratePerHour * hoursWorked;
+    }
+
+    public double computeTotalDeductions() {
+        return sssDeduction + philHealthDeduction + pagIbigDeduction + withholdingTax;
+    }
+
+    public double computeNetSalary() {
+        return computeGrossSalary() - computeTotalDeductions();
+    }
+
+    public String getEmployeeDetails() {
+        return "ID: " + employeeID + ", Name: " + name + ", Position: " + position;
+    }
+}
